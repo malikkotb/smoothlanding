@@ -1,5 +1,5 @@
 "use client";
 
 export default function Description() {
-  return <main className=""></main>;
+  return <main className="">Description</main>;
 }

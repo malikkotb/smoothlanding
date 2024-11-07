@@ -1,9 +1,8 @@
 "use client";
 import { useEffect } from "react";
-import styles from "./page.module.css";
-import Intro from "../components/Intro";
-import Description from "../components/Description";
-import Projects from "../components/Projects";
+import Intro from "../components/Intro/Intro";
+import Description from "../components/Description/Description";
+import Projects from "../components/Projects/Projects";
 import Lenis from "lenis";
 
 export default function Home() {
@@ -17,7 +16,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className={styles.main}>
+    <main className={""}>
       <Intro />
       <Description />
       <Projects />
