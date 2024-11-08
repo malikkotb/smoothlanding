@@ -15,8 +15,18 @@ export default function Intro() {
   useGSAP(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // const master = gsap.timeline();
-    // master.add(setInitialStates).add(preloaderAnimation());
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: document.documentElement,
+        scrub: true,
+        start: "top",
+        end: "+=500px",
+      },
+    });
+
+    timeline
+      .from(background.current, { clipPath: `inset(15%)` })
+      .to(introImage.current, { height: "200px" }, 0);
   }, []);
 
   return (
@@ -29,6 +39,7 @@ export default function Intro() {
         <Image
           src={"/background.jpg"}
           fill={true}
+          className="object-cover"
           alt="background image"
           priority={true}
         />
@@ -42,7 +53,7 @@ export default function Intro() {
           className={"w-[350px] h-[475px] absolute"}
         >
           <Image
-            src={"/intro.png"}
+            src={"/intro.jpg"}
             alt="intro image"
             className="object-cover object-top"
             fill={true}
@@ -51,7 +62,7 @@ export default function Intro() {
         </div>
         <h1
           style={{ zIndex: 3 }}
-          className="text-white text-[7vw] text-center whitespace-nowrap"
+          className="text-white text-[7vw] font-bold text-center whitespace-nowrap"
           data-scroll
           data-scroll-speed="0.7"
         >
